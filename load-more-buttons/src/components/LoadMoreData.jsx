@@ -26,7 +26,7 @@ export const LoadMoreData = () => {
         );
         const data = await response.json();
         if (data && data.products && data.products.length) {
-          setProducts(data.products);
+          setProducts((prevProducts) => [...prevProducts, ...data.products]);
           setLoading(false);
         }
       } catch (e) {
